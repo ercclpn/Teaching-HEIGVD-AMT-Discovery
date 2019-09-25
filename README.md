@@ -45,3 +45,22 @@ There are different ways to deploy .war files. The details are specific to every
 * copy of the .war file in a special directory monitored by the server (autodeploy): very interesting when combined with Docker
 
 Since you goal is to make it possible to start your entire project with a single command (`docker-compose up`), you will probably want to use the last one. The strategy will be to create a special image and to add a `ADD` or `COPY` instruction in the `Dockerfile`, so that your .war file is copied to the special autodeploy directory when the image is build. It is easy to do, but you will have to search in the app server documentation to see where this "magic" directory is located.
+
+
+### Deployment Payara
+
+[https://blog.payara.fish/how-to-deploy-an-application-on-payara-server-or-glassfish]
+
+Auto-Deploy path (docker) : /opt/payara/glassfish/domains/domain1/autodeploy
+
+### Deployment Wildfly
+
+[https://docs.jboss.org/author/display/WFLY10/Application+deployment]
+
+Auto-Deploy path (docker) : /opt/jboss/wildfly/standalone/deployments
+
+### Deployment Tomcat
+
+[https://tomcat.apache.org/tomcat-8.0-doc/deployer-howto.html]
+
+Auto-Deploy (docker) : /usr/local/tomee/webapps
